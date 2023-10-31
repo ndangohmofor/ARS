@@ -11,3 +11,16 @@ class LinkedList:
         new_node = Node(new_activity, new_location, new_seasons, new_min_persons, new_max_persons, new_period)
         new_node.set_next_node(self.head_node)
         self.head_node = new_node
+
+    def remove_node(self, activity):
+        current_node = self.head_node
+        if self.head_node.get_activity() == activity:
+            self.head_node = current_node.get_next_node()
+        else:
+            while current_node:
+                next_node = current_node.get_next_node()
+                if next_node.get_activity() == activity:
+                    current_node.next_node = next_node.get_next_node()
+                    current_node = None
+                else:
+                    current_node = next_node
