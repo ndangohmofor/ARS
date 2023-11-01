@@ -1,5 +1,5 @@
 from activity_node import Node
-
+from stringify_list import return_string
 
 class LinkedList:
     def __init__(self, activity=None, location=None, seasons=None, min_persons=None, max_persons=None, period=None):
@@ -29,7 +29,12 @@ class LinkedList:
     def stringify_list(self):
         string_list = ""
         current_node = self.head_node
-        while current_node:
-            string_list += str(current_node.activity + ": " + current_node.location + "Number of person: " + current_node.min_persons + " - " + current_node.max_persons + "Seasons:\n\t" + [season + "\n" for season in current_node.seasons])
+        while current_node.next_node:
+            string_list += str(current_node.activity + ": \n\t" + "Location: " + current_node.location + "\n\tNumber "
+                                                                                                         "of persons: "
+                                                                                                         "" + str(
+                current_node.min_persons) + " - " + str(current_node.max_persons) + " " + "\n\tSeasons: " + ", "
+                                                                                                           "".join(
+                current_node.get_seasons()) + "\n\n")
             current_node = current_node.get_next_node()
         return string_list
