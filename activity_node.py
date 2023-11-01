@@ -17,7 +17,7 @@ class Node:
     def get_activity(self):
         return self.activity
 
-    def get_lcation(self):
+    def get_location(self):
         return self.location
 
     def get_seasons(self):
