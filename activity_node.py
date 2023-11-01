@@ -6,7 +6,7 @@ class Node:
         self.min_persons = min_persons
         self.max_persons = max_persons
         self.period = period
-        self.next_node=next_node
+        self.next_node = next_node
 
     def set_next_node(self, new_node):
         self.next_node = new_node
