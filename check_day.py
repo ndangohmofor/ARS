@@ -1,6 +1,6 @@
 days = {
-    "weekend": ["Saturday", "Sunday"],
-    "weekday": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+    "weekend": ["saturday", "sunday"],
+    "weekday": ["monday", "tuesday", "wednesday", "thursday", "friday"]
 }
 
 
