@@ -2,19 +2,21 @@ from check_day import check_for_weekend
 from find_season import find_season
 from insert_activities import insert_activities
 from seasons import seasons
+from activity_list import LinkedList
 
 
 def find_matches(activities, month=None, day=None, participants=1, location="Outdoor"):
     activities_linkedlist = insert_activities(activities)
-    current_matches = [activity for activity in activities_linkedlist if activity.get_location == location and (
-            activity.get_min_persons <= participants <= activity.get_max_persons
-    )]
 
-    if month:
-        current_season = find_season(seasons, month)
-        current_matches = [activity for activity in current_matches if current_season in activity.get_seasons]
+    # print(activities_linkedlist.stringify_list())
+    matched_activity_nodes = LinkedList()
 
-    if day:
-        current_matches = [activity for activity in current_matches if activity.get_period == check_for_weekend(day)]
+    current_node = activities_linkedlist.head_node
 
-    return current_matches
+    while current_node.next_node:
+        season = find_season(seasons, month)
+        week = check_for_weekend(day)
+        if (season in current_node.seasons) and (week == current_node.period) and (current_node.min_persons <= participants <= current_node.max_persons) and (current_node.location.lower() == location.lower() or current_node.location.lower() == 'both'):
+            matched_activity_nodes.insert_beginning(current_node.activity, current_node.location, current_node.seasons, current_node.min_persons, current_node.max_persons, current_node.period)
+        current_node = current_node.get_next_node()
+    return matched_activity_nodes
