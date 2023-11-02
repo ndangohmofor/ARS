@@ -18,7 +18,7 @@ class LinkedList:
         if self.head_node.get_activity() == activity:
             self.head_node = current_node.get_next_node()
         else:
-            while current_node:
+            while current_node.next_node:
                 next_node = current_node.get_next_node()
                 if next_node.get_activity() == activity:
                     current_node.next_node = next_node.get_next_node()
