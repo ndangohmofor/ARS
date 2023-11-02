@@ -1,6 +1,6 @@
 seasons = {
-    "Spring": ["March", "April", "May"],
-    "Summer": ["June", "July", "August"],
-    "Fall": ["September", "October", "November"],
-    "Winter": ["December", "January", "February"]
+    "spring": ["march", "april", "may"],
+    "summer": ["june", "july", "august"],
+    "fall": ["september", "october", "november"],
+    "winter": ["december", "january", "february"]
 }
