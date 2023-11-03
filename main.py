@@ -1,8 +1,12 @@
 from activity_filter import find_matches
 from activities import activities
 from seasons import months, days, locations
+from welcome import welcome
+
 
 finish_activity_search = False
+
+welcome()
 
 while not finish_activity_search:
     user_month = None
