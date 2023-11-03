@@ -8,7 +8,6 @@ from seasons import seasons
 def find_matches(activities, month=None, day=None, participants=1, location="Outdoor"):
     activities_linkedlist = insert_activities(activities)
 
-    # print(activities_linkedlist.stringify_list())
     matched_activity_nodes = LinkedList()
 
     current_node = activities_linkedlist.head_node
@@ -24,5 +23,6 @@ def find_matches(activities, month=None, day=None, participants=1, location="Out
             matched_activity_nodes.insert_beginning(current_node.activity, current_node.location, current_node.seasons,
                                                     current_node.min_persons, current_node.max_persons,
                                                     current_node.period)
+
         current_node = current_node.get_next_node()
     return matched_activity_nodes
