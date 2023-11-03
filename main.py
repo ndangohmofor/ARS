@@ -1,22 +1,28 @@
 from activity_filter import find_matches
 from activities import activities
+from seasons import months, days, locations
 
 finish_activity_search = False
 
 while not finish_activity_search:
-    user_month = str(input(
-        "\nWhich month of the year are you looking for engage in an activity? (Type the full month. Example, "
-        "March/ April/ May/ etc  If this does not matter, just press enter.\n"
+    user_month = None
+    while not user_month or user_month not in months:
+        user_month = str(input(
+            "\nWhich month of the year are you looking for engage in an activity? (Type the full month. Example, "
+            "March/ April/ May/ etc.\n"
+        )).lower()
+
+    user_day = None
+    while not user_day or user_day not in days:
+        user_day = str(input(
+            "\nWhat day of the week are you looking to engage in an activity (Type the full day. Example, "
+            "Monday / Tuesday / etc)?\n"
     )).lower()
 
-    user_day = str(input(
-        "\nWhat day of the week are you looking to engage in an activity (Type the full day. Example, "
-        "Monday / Tuesday / etc)?  If this does not matter, just press enter.\n"
-    )).lower()
-
-    activity_location = str(input(
-        "\nWould you like an 'indoor' or 'outdoor' activity? (Type the word 'Outdoor', or 'Indoor', or 'Both') If "
-        "this does not matter, just press enter.\n"
+    activity_location = None
+    while not activity_location or activity_location not in locations:
+        activity_location = str(input(
+            "\nWould you like an 'indoor' or 'outdoor' activity? (Type the word 'Outdoor', or 'Indoor', or 'Both').\n"
     )).lower()
 
     num_of_participants = input(
@@ -27,7 +33,7 @@ while not finish_activity_search:
     if num_of_participants:
         num_of_participants = int(num_of_participants)
     else:
-        num_of_participants = 1
+        num_of_participants = None
 
     activity_match_list = find_matches(activities, user_month, user_day, num_of_participants, activity_location)
 
