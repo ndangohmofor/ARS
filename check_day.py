@@ -1,7 +1,4 @@
-days = {
-    "weekend": ["saturday", "sunday"],
-    "weekday": ["monday", "tuesday", "wednesday", "thursday", "friday"]
-}
+from seasons import days
 
 
 def check_for_weekend(day):
