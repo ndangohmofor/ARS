@@ -15,6 +15,10 @@ months = [
     "february"
 ]
 
+week_days = [
+    "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"
+]
+
 locations = [
     "indoor", "outdoor", "both"
 ]
