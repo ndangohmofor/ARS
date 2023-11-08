@@ -1,6 +1,6 @@
 from activity_filter import find_matches
 from activities import activities
-from seasons import months, days, locations
+from seasons import months, week_days, locations
 from welcome import welcome
 
 
@@ -17,7 +17,7 @@ while not finish_activity_search:
         )).lower()
 
     user_day = None
-    while not user_day or user_day not in days:
+    while not user_day or user_day not in week_days:
         user_day = str(input(
             "\nWhat day of the week are you looking to engage in an activity (Type the full day. Example, "
             "Monday / Tuesday / etc)?\n"
